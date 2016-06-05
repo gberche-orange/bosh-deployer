@@ -1,0 +1,50 @@
+server:
+  port: ${PORT:8080}
+management:
+  context-path: /admin
+
+spring:
+  application:
+    name: bosh-deployer
+
+security:
+  ignored: /favicon.ico, /
+  basic:
+    enabled: false
+  user:
+    password: none
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: DEBUG
+    
+    com.orange.oss.BoshFeignClient: DEBUG
+    
+
+hystrix:
+   command.getInfo.execution.isolation.thread.timeoutInMilliseconds: 30000
+   command.getInfo.circuitBreaker.requestVolumeThreshold: 4
+   command.getInfo.circuitBreaker.sleepWindowInMilliseconds: 60000
+   command.getInfo.metrics.rollingStats.timeInMilliseconds: 180000
+   collapser.getInfo.maxRequestsInBatch: 1
+   collapser.getInfo.requestCache.enabled: FALSE
+   threadpool.getInfo.coreSize: 30
+   threadpool.getInfo.metrics.rollingStats.timeInMilliseconds: 180000 
+
+feign:
+  hystrix:
+    enabled: false
+  okhttpclient:
+    enabled: true
+  httpclient:
+    enabled: false #to enable okhttp client
+   
+director:
+  url: https://bosh2
+  user: bosh
+  password: xx
+  proxyHost: 127.0.0.1
+  proxyPort: 3128
+   
+   

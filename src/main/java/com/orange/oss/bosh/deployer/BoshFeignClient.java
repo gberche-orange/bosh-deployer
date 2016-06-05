@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(name="bosh-client",url="${director.url}",configuration=com.orange.oss.bosh.deployer.FeignConfiguration.class)
+@FeignClient(name="bosh-client",url="${director.url}",configuration=com.orange.oss.bosh.deployerfeigncfg.FeignConfiguration.class)
 public interface BoshFeignClient {
 
 	//------------------------------
