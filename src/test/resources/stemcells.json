@@ -1,0 +1,1 @@
+[{"name":"bosh-openstack-kvm-ubuntu-trusty-go_agent","operating_system":"ubuntu-trusty","version":"3232.3","cid":"1ccaeae6-a59a-41a9-96a5-be7910e0819a","deployments":[{"name":"concourse1"},{"name":"hazelcast"}]}]
