@@ -1,5 +1,7 @@
 package com.orange.oss.bosh.deployer;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +21,16 @@ public class RestAPITest {
 	BoshFeignClient client;
 	
 	@Test
-	public void test() {
+	public void testInfos() {
 		ApiMappings.Info infos=client.getInfo();
+		
+		
 	}
 
+	@Test
+	public void testDeployments() {
+		ApiMappings.Deployments deployments=client.getDeployments();
+		
+	}
+	
 }
