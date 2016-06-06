@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableHystrix
-@EnableFeignClients(defaultConfiguration=com.orange.oss.bosh.deployerfeigncfg.FeignConfiguration.class)
+@EnableFeignClients
 public class BoshDeployerApplication {
 
 	static {

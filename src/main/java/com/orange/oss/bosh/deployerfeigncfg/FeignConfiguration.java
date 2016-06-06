@@ -28,6 +28,7 @@ import org.springframework.context.annotation.Configuration;
 import com.squareup.okhttp.Protocol;
 import com.sun.net.ssl.internal.ssl.X509ExtendedTrustManager;
 
+				//import feign.Client;
 import feign.Logger;
 import feign.auth.BasicAuthRequestInterceptor;
 import feign.okhttp.OkHttpClient;
@@ -68,7 +69,7 @@ public class FeignConfiguration {
 	}
 
 	@Bean
-	public OkHttpClient customFeignClient() {
+	public OkHttpClient feignClient() {
 		HostnameVerifier hostnameVerifier = new HostnameVerifier() {
 			@Override
 			public boolean verify(String hostname, SSLSession session) {
@@ -93,7 +94,7 @@ public class FeignConfiguration {
 		ohc.setHostnameVerifier(hostnameVerifier);
 		ohc.setSslSocketFactory(sslSocketFactory);
 		Proxy proxy=new Proxy(Proxy.Type.HTTP, new InetSocketAddress(this.proxyHost, this.proxyPort));
-		//ohc.setProxy(proxy);
+		ohc.setProxy(proxy);
         ohc.setProxySelector(new ProxySelector() {
             @Override
             public List<Proxy> select(URI uri) {

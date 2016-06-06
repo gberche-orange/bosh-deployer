@@ -32,7 +32,7 @@ public interface BoshFeignClient {
 	List<ApiMappings.Deployment> getDeployments();
 	
 	@RequestMapping(method = RequestMethod.GET, value="/deployments/{name}")
-	ApiMappings.Deployment getDeployment(@PathVariable("name") String deploymentName);
+	ApiMappings.SingleDeployment getDeployment(@PathVariable("name") String deploymentName);
 	
 	
 	@RequestMapping(method = RequestMethod.POST, value="/deployments/{name}")
